@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
           cart: remote('REMOTE_CART_URL', 'http://localhost:5002/assets/remoteEntry.js'),
           account: remote('REMOTE_ACCOUNT_URL', 'http://localhost:5003/assets/remoteEntry.js'),
         },
-        exposes: { './ui': './src/ui.ts' },
+        exposes: { './api': './src/ui.ts' },
         shared: ['react', 'react-dom', 'react-router-dom', '@shoplab/ui-kit'],
       }),
     ],
