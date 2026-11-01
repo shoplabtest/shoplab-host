@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
           account: remote('REMOTE_ACCOUNT_URL', 'http://localhost:5003/assets/remoteEntry.js'),
         },
         exposes: { './ui': './src/ui.ts' },
-        shared: ['react', 'react-dom', 'react-router-dom'],
+        shared: ['react', 'react-dom', 'react-router-dom', '@shoplab/ui-kit'],
       }),
     ],
     build: { target: 'esnext', minify: false, cssCodeSplit: false },
