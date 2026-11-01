@@ -22,6 +22,8 @@ export default defineConfig(({ mode }) => {
       }),
     ],
     build: { target: 'esnext', minify: false, cssCodeSplit: false },
+    // Remotes fetch the host's remoteEntry.js (for `host/ui`) from another origin.
+    preview: { cors: true },
     // Stands in for the gateway until shoplab-gateway exists: one origin, routed by path prefix.
     server: {
       proxy: {

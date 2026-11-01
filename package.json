@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 5000",
-    "build": "vite build",
+    "build": "vite build && node scripts/check-expose.mjs Ui",
     "preview": "vite preview --port 5000",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
