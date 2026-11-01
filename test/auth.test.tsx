@@ -51,7 +51,7 @@ describe('AuthProvider', () => {
     expect(JSON.parse(merge.init.body as string)).toEqual({ guestCartId: 'guest-9' });
     expect((merge.init.headers as Record<string, string>).authorization).toBe(`Bearer ${access}`);
     expect(localStorage.getItem(CART_ID_KEY)).toBeNull();
-    expect(counts).toContainEqual({ count: 5 });
+    expect(counts).toContainEqual({ quantity: 5 });
   });
 
   it('keeps the guest cart id when the merge fails', async () => {

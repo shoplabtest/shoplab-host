@@ -3,7 +3,7 @@ export const AUTH_CHANGED = 'auth:changed';
 export const CART_UPDATED = 'cart:updated';
 
 export interface AuthChangedDetail { loggedIn: boolean; userId: string | null }
-export interface CartUpdatedDetail { count: number }
+export interface CartUpdatedDetail { quantity: number }
 
 export function emit<T>(name: string, detail: T) {
   window.dispatchEvent(new CustomEvent<T>(name, { detail }));
