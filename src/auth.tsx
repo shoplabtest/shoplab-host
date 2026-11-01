@@ -40,7 +40,7 @@ async function mergeGuestCart(accessToken: string) {
       body: JSON.stringify({ guestCartId }),
     });
     clearGuestCartId();
-    emitCartUpdated({ count: cart.lines.reduce((n, l) => n + l.quantity, 0) });
+    emitCartUpdated({ quantity: cart.lines.reduce((n, l) => n + l.quantity, 0) });
   } catch {
     // Keep the guest id so the next login can retry; shopping continues either way.
   }

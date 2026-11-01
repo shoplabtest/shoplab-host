@@ -41,7 +41,7 @@ describe('App shell', () => {
   it('cart badge follows the cart:updated window event', async () => {
     renderApp();
     await screen.findByText('Cart (0)');
-    act(() => emitCartUpdated({ count: 4 }));
+    act(() => emitCartUpdated({ quantity: 4 }));
     expect(await screen.findByText('Cart (4)')).toBeTruthy();
   });
 

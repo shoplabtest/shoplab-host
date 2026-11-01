@@ -11,7 +11,7 @@ export function App() {
   const [cartCount, setCartCount] = useState(0);
   const [notice, setNotice] = useState<string | null>(null);
 
-  useEffect(() => onCartUpdated(({ count }) => setCartCount(count)), []);
+  useEffect(() => onCartUpdated(({ quantity }) => setCartCount(quantity)), []);
   const onAddToCart = useCallback((productId: string) => setNotice(`Added ${productId} to your cart`), []);
 
   return (
