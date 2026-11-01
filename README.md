@@ -6,7 +6,7 @@ Module Federation shell for ShopLab: routing, auth context and the remote loader
 **Exposes** `./ui`: `useAuth`, `authFetch`, `emitCartUpdated`, `onCartUpdated`, `onAuthChanged`, `CART_ID_KEY`.
 
 **Window events:** `auth:changed` `{ loggedIn, userId }`, `cart:updated` `{ count }`.
-**Browser state:** `localStorage.shoplab.auth` (tokens, owned here), `localStorage.cartId` (guest cart, written by the cart remote, read here to call `POST /cart/merge` after login).
+**Browser state:** `localStorage.shoplab.session` (tokens, owned here), `localStorage.cartId` (guest cart, written by the cart remote, read here to call `POST /cart/merge` after login).
 **Props passed to catalog:** `onAddToCart(productId)`, `currency`.
 
 A remote that fails to load shows a fallback instead of breaking the shell.

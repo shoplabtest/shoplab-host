@@ -74,6 +74,12 @@ describe('AuthProvider', () => {
     await waitFor(() => expect(seen).toContainEqual({ loggedIn: true, userId: 'u-1' }));
   });
 
+  it('still restores a session saved under the legacy shoplab.auth key', async () => {
+    localStorage.setItem('shoplab.auth', JSON.stringify({ accessToken: access, refreshToken: 'r1' }));
+    const { result } = renderHook(() => useAuth(), { wrapper });
+    expect(result.current.user?.id).toBe('u-1');
+  });
+
   it('logout clears tokens even when the server call fails', async () => {
     localStorage.setItem(AUTH_KEY, JSON.stringify({ accessToken: access, refreshToken: 'r1' }));
     stubFetch({ 'POST /auth/logout': () => ({ status: 500, body: {} }) });
