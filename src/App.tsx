@@ -4,7 +4,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { useAuth } from './auth.tsx';
 import { onCartUpdated } from './bus.ts';
 import { RemoteBoundary } from './RemoteBoundary.tsx';
-import { AccountPage, CartPage, CatalogPage } from './remotes.ts';
+import { AccountPage, CartPage, CatalogPage, CheckoutPage } from './remotes.ts';
 
 export function App() {
   const { user, logout } = useAuth();
@@ -27,6 +27,7 @@ export function App() {
           <Route path="/" element={<RemoteBoundary name="Catalog"><CatalogPage onAddToCart={onAddToCart} currency={DEFAULT_CURRENCY} /></RemoteBoundary>} />
           <Route path="/cart" element={<RemoteBoundary name="Cart"><CartPage /></RemoteBoundary>} />
           <Route path="/account/*" element={<RemoteBoundary name="Account"><AccountPage /></RemoteBoundary>} />
+          <Route path="/checkout/*" element={<RemoteBoundary name="Checkout"><CheckoutPage /></RemoteBoundary>} />
         </Routes>
       </main>
       {notice && <Toast kind="success" message={notice} onDismiss={() => setNotice(null)} />}
