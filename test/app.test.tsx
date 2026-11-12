@@ -12,6 +12,7 @@ vi.mock('../src/remotes.ts', () => ({
   ),
   CartPage: () => <p>cart remote</p>,
   AccountPage: () => <p>account remote</p>,
+  CheckoutPage: () => <p>checkout remote</p>,
 }));
 
 const { App } = await import('../src/App.tsx');
@@ -36,6 +37,13 @@ describe('App shell', () => {
   it('routes /cart and /account to their remotes', async () => {
     renderApp('/cart');
     expect(await screen.findByText('cart remote')).toBeTruthy();
+  });
+
+  it('routes /checkout, and its sub-paths, to the checkout remote', async () => {
+    renderApp('/checkout');
+    expect(await screen.findByText('checkout remote')).toBeTruthy();
+    renderApp('/checkout/confirmation');
+    expect((await screen.findAllByText('checkout remote')).length).toBeGreaterThan(0);
   });
 
   it('cart badge follows the cart:updated window event', async () => {

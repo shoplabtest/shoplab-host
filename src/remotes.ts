@@ -4,3 +4,4 @@ import { lazy } from 'react';
 export const CatalogPage = lazy(() => import('catalog/Page'));
 export const CartPage = lazy(() => import('cart/Cart'));
 export const AccountPage = lazy(() => import('account/Account'));
+export const CheckoutPage = lazy(() => import('checkout/Checkout'));

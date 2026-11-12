@@ -2,7 +2,7 @@
 
 Module Federation shell for ShopLab: routing, auth context and the remote loader. React + Vite.
 
-**Loads** (runtime, from `REMOTE_*_URL`, defaults `localhost:5001-5003`): `catalog/Page`, `cart/Cart`, `account/Account`.
+**Loads** (runtime, from `REMOTE_*_URL`, defaults `localhost:5001-5004`): `catalog/Page`, `cart/Cart`, `account/Account`, `checkout/Checkout` (route `/checkout`).
 **Exposes** `./ui`: `useAuth`, `authFetch`, `emitCartUpdated`, `onCartUpdated`, `onAuthChanged`, `CART_ID_KEY`.
 
 **Window events:** `auth:changed` `{ loggedIn, userId }`, `cart:updated` `{ count }`.
@@ -13,7 +13,7 @@ A remote that fails to load shows a fallback instead of breaking the shell.
 
 ```
 npm install
-npm run dev      # port 5000; Vite proxies /auth, /products, /search, /categories, /cart to local services
+npm run dev      # port 5000; Vite proxies /auth, /users, /products, /search, /categories, /cart, /orders and /payments to shoplab-gateway (GATEWAY_URL, default http://localhost:8080)
 npm test
 npm run build    # emits dist/assets/remoteEntry.js
 ```

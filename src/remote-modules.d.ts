@@ -9,6 +9,11 @@ declare module 'cart/Cart' {
   const Cart: ComponentType<Record<string, never>>;
   export default Cart;
 }
+declare module 'checkout/Checkout' {
+  import type { ComponentType } from 'react';
+  const Checkout: ComponentType<Record<string, never>>;
+  export default Checkout;
+}
 declare module 'account/Account' {
   import type { ComponentType } from 'react';
   const Account: ComponentType<Record<string, never>>;
